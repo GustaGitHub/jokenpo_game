@@ -59,22 +59,22 @@ function Game(){
     
     useEffect(()=>{
         function checkScore(){
-            if(imgPlayer == stone && imgCpu == stone || 
-            imgPlayer == paper && imgCpu == paper ||         //Verifica se ocorreu EMPATE
-            imgPlayer == scissors && imgCpu == scissors 
+            if(imgPlayer === stone && imgCpu === stone || 
+            imgPlayer === paper && imgCpu === paper ||         //Verifica se ocorreu EMPATE
+            imgPlayer === scissors && imgCpu === scissors 
             ){
                 setinfoGame('Deu empate, Faça outra jogada !')
             }
-            else if(imgPlayer == stone && imgCpu == scissors ||        
-                    imgPlayer == paper && imgCpu == stone ||        //Verifica se o usuario GANHOU
-                    imgPlayer == scissors && imgCpu == paper
+            else if(imgPlayer === stone && imgCpu === scissors ||        
+                    imgPlayer === paper && imgCpu === stone ||        //Verifica se o usuario GANHOU
+                    imgPlayer === scissors && imgCpu === paper
             ){
                 setinfoGame(`Ponto para ${ nameParam }`)
                 setScorePlayer(scorePlayer + 1)
             }
-            else if(imgCpu == stone && imgPlayer == scissors ||
-                    imgCpu == paper && imgPlayer == stone ||        //Verifica se a CPU GANHOU
-                    imgCpu == scissors && imgPlayer == paper
+            else if(imgCpu === stone && imgPlayer === scissors ||
+                    imgCpu === paper && imgPlayer === stone ||        //Verifica se a CPU GANHOU
+                    imgCpu === scissors && imgPlayer === paper
             ){
                 setinfoGame(`Ponto para a CPU`)
                 setScoreCPU(scoreCPU + 1)
@@ -107,25 +107,18 @@ function Game(){
                     <NamePlayer>{nameParam}</NamePlayer>
                         <DivImageThrow>
                         {imgPlayer ? (
-                                <img src={imgPlayer} alt="alguma foto" width="100px" height="90px"/>
+                                <img src={imgPlayer} alt="alguma foto" width="90px" height="90px"/>
                         ) : (
                                 <p>Pronto !</p>
                         ) }
                         </DivImageThrow>
                     <GameScore>{scorePlayer}</GameScore>
-                </div>
-                <div>            
-                    {reset && (
-                        <ButtonReset onClick={()=>resetGame()}>
-                            Reiniciar
-                        </ButtonReset>
-                    )}
                 </div>      
                 <div>
                     <NamePlayer>CPU</NamePlayer>
                         <DivImageThrow>
                             {imgCpu ? (
-                                    <img src={imgCpu} alt="alguma foto" width="100px" height="90px"/>
+                                    <img src={imgCpu} alt="alguma foto" width="90px" height="90px"/>
                                 ) : (
                                     <p>Pronto !</p>
                                 ) 
@@ -153,16 +146,14 @@ function Game(){
             <br/>
              <div style={{textAlign: "center"}}>              
                 <InputInfoGame value={infoGame}/>
-            </div>           
-            <FooterGame>
-                    <LinksFooter href="https://skdesu.com/jokenpo/" target="_blank">
-                    Regras do Jogo
-                    </LinksFooter>  
-                     {" | "}
-                    <LinksFooter href="https://github.com/GustaGitHub" target="_blank">
-                                    Feito Por &copy;Gustavo Ribeiro
-                    </LinksFooter>
-            </FooterGame>
+            </div>
+            <DivButtonGame>
+                {reset && (
+                    <ButtonReset onClick={()=>resetGame()}>
+                        Reiniciar
+                    </ButtonReset>
+                )}
+            </DivButtonGame>           
         </>
     )
 }

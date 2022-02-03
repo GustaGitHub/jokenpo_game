@@ -14,32 +14,32 @@ function InitialPage() {
     let history = useHistory()
 
     function redirectGame(){
-        name.length > 0 ?
-            history.push('/jogar/' + name)
-        :
-            history.push('/jogar/usuario')    
+        if(name.length > 0 ) history.push('/jogar/' + name)
+        else history.push('/jogar/usuario')    
     }
     
 
     return(
-        <Menu>
-            <Title><h1>JO - KEN - PO</h1></Title>
-                <InputName 
-                onChange={e => setName(e.target.value)}
-                />
-                <ButtonDefault onClick={()=>redirectGame()}>
-                    JOGAR
-                </ButtonDefault>
+        <>
             <FooterGame>
                     <LinksFooter href="https://skdesu.com/jokenpo/" target="_blank">
                     Regras do Jogo
-                    </LinksFooter>  
-                     {" | "}
+                   </LinksFooter>  
+            
                     <LinksFooter href="https://github.com/GustaGitHub" target="_blank">
                                     Feito Por &copy;Gustavo Ribeiro
                     </LinksFooter>
             </FooterGame>
-        </Menu>
+            <Menu>
+                <Title><h1>JO - KEN - PO</h1></Title>
+                    <InputName 
+                    onChange={e => setName(e.target.value)}
+                    />
+                    <ButtonDefault onClick={()=>redirectGame()}>
+                        JOGAR
+                    </ButtonDefault>
+            </Menu>
+        </>
     )
 }
 
