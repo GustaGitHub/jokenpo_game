@@ -1,4 +1,4 @@
-# jokenpo_game
+# jokenpo Game
 Jokenpô (Mais conhecido como Pedra, Papel, Tesoura), feito com ReactJs, Hooks e Styled-Components
 
 ## Versão 2.0 - (fev - 2022)
